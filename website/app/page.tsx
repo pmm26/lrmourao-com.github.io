@@ -866,42 +866,52 @@ export default function LRMouraoPage() {
               {ADVANTAGES.map((c, i) => (
                 <Card
                   key={c.title}
-                  className="group relative bg-white/95 backdrop-blur-sm border-2 border-amber-300/50 shadow-2xl hover:shadow-amber-500/50 transition-all duration-500 overflow-hidden hover:scale-105"
+                  className="group relative bg-slate-900/90 backdrop-blur-xl border border-amber-500/20 rounded-2xl overflow-hidden transition-all duration-500 hover:scale-[1.02] hover:-translate-y-2"
                   style={{ animationDelay: `${i * 150}ms` }}
                 >
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${c.color} opacity-5 group-hover:opacity-15 transition-all duration-500`}
-                  />
-                  <div
-                    className={`absolute top-0 right-0 w-48 h-48 bg-gradient-to-br ${c.color} opacity-10 rounded-full blur-3xl -mr-24 -mt-24 group-hover:opacity-30 transition-all group-hover:scale-150 duration-700`}
-                  />
-                  <div className="absolute top-2 right-2 w-24 h-24 border-2 border-amber-300/20 rounded-full group-hover:scale-150 transition-transform duration-700" />
-
-                  <CardContent className="p-10 relative">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div
-                        className={`bg-gradient-to-br ${c.color} p-4 rounded-2xl shadow-2xl group-hover:shadow-amber-500/50 transition-all group-hover:scale-110 group-hover:rotate-6 duration-500`}
-                      >
-                        <c.icon className="w-8 h-8 text-white" />
+                  {/* Single amber glow layer */}
+                  <div className="absolute -inset-1 bg-amber-500/30 rounded-2xl blur opacity-0 group-hover:opacity-60 transition-all duration-700" />
+                  
+                  {/* Amber particle system */}
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-amber-400/20 rounded-full blur-2xl -translate-y-12 translate-x-12 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-700" />
+                  <div className="absolute bottom-0 left-0 w-20 h-20 bg-amber-400/15 rounded-full blur-2xl translate-y-10 -translate-x-10 group-hover:translate-y-0 group-hover:translate-x-0 transition-all duration-700" />
+                  
+                  {/* Subtle grid pattern */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(251,191,36,0.05)_1px,transparent_1px)] bg-size-[20px_20px] opacity-30" />
+                  
+                  {/* Amber border glow */}
+                  <div className="absolute inset-0 border border-amber-500/20 group-hover:border-amber-400/50 rounded-2xl transition-all duration-500 shadow-lg group-hover:shadow-amber-400/20" />
+                  
+                  {/* Shimmer effect */}
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-amber-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  
+                  <CardContent className="relative p-8">
+                    <div className="flex items-start gap-6 mb-6">
+                      <div className="relative bg-amber-500/20 p-5 rounded-2xl border border-amber-400/30 shadow-lg shadow-amber-500/20 group-hover:shadow-amber-500/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                        <div className="absolute inset-0 bg-amber-400/10 rounded-2xl blur" />
+                        <c.icon className="w-10 h-10 text-amber-400 relative z-10" />
                       </div>
-                      <div>
-                        <h3 className="text-2xl font-black text-slate-900 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-amber-600 group-hover:to-orange-600 transition-all duration-300">
+                      
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-black text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-amber-400 group-hover:to-orange-400 transition-all duration-300">
                           {c.title}
                         </h3>
-                        <p className="text-sm text-amber-600 font-bold uppercase tracking-wider">
+                        <p className="text-sm text-amber-400/80 font-bold uppercase tracking-wider">
                           {c.sub}
                         </p>
                       </div>
                     </div>
-                    <p className="text-slate-700 leading-relaxed text-base mb-6 group-hover:text-slate-900 transition-colors font-medium">
+                    
+                    <p className="text-slate-300 leading-relaxed text-base mb-6 font-medium">
                       {c.text}
                     </p>
+                    
                     {c.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-4">
+                      <div className="flex flex-wrap gap-2">
                         {c.tags.map((t) => (
                           <span
                             key={t}
-                            className="bg-gradient-to-r from-amber-100 to-orange-100 text-amber-800 px-4 py-2 rounded-full text-sm font-bold border-2 border-amber-300 shadow-sm hover:shadow-md hover:scale-105 transition-all duration-300"
+                            className="bg-amber-900/30 text-amber-300 px-3 py-1.5 rounded-full text-xs font-bold border border-amber-400/30 shadow-sm hover:bg-amber-400/20 hover:border-amber-400/50 hover:scale-105 transition-all duration-300"
                           >
                             {t}
                           </span>
